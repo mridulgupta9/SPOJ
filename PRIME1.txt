@@ -1,0 +1,47 @@
+#include<stdio.h>
+int main() {
+
+long long int n,m;
+int t;
+scanf("%d",&t);         //no of test cases
+while(t--)
+{
+bool* a=new bool[100001];
+scanf("%lld %lld",&m,&n);
+if(n>100000)
+{
+long long int l,u;
+u=n;        //upper bound of the bool array
+l=u-100000; //lower bound of the bool array
+for(long long int i=2;i*i<=u;i++)
+    {
+        for(long long int j=(l+i-1)/i;j*i<=u;j++) //to find a factor just greater than or equal to l 
+            {
+                if(!a[i*j-l]&&j!=1)
+                    a[i*j-l]=true;     //removing all factors(Segmented Sieve)
+            }
+    }
+for(long long int i=m-l;i<=100000;i++)
+    if(!a[i])
+        printf("%lld\n",i+l);
+}
+else
+{
+    a[0]=true;
+    a[1]=true;
+    for(long long int i=2;i*i<=n;i++)
+    {
+        for(long long int j=(m+i-1)/i;j*i<=n;j++)
+            {
+                if(!a[i*j]&&j!=1)
+                    a[i*j]=true;
+            }
+    }
+for(long long int i=m;i<=n;i++)
+    if(!a[i])
+        printf("%lld\n",i);
+}
+
+}
+return 0;
+}

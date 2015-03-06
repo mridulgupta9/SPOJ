@@ -1,0 +1,7 @@
+for i in range(0,10):
+    total=int(raw_input())
+    y=int(raw_input())
+    kl=(total+y)/2
+    na=(total-y)/2
+    print kl
+    print na

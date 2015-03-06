@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	long long n;
+	cin>>n;
+	int x=n%10;
+	if(x)
+	{
+		cout<<1<<endl<<x;
+	}	
+	else
+	cout<<2;
+		
+		
+				
+}
